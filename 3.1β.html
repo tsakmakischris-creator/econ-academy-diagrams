@@ -1,0 +1,68 @@
+<!doctype html><html lang="el"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ΑΟΘ – TP και MP</title><style>
+*{box-sizing:border-box}body{margin:0 auto;padding:14px 20px;max-width:1450px;font-family:Arial,sans-serif;color:#111;background:white}h1{font-size:24px;margin:0 0 5px}.lead{font-size:15px;margin:0 0 10px}.layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(310px,.85fr);gap:14px}.panel{border:1px solid #d8d8d8;border-radius:12px;padding:12px}h2{font-size:18px;margin:0 0 7px}svg{width:100%;height:auto;display:block}.legend{display:flex;gap:20px;font-size:14px;flex-wrap:wrap}.legend i{display:inline-block;width:24px;height:4px;margin-right:6px;vertical-align:middle}.sliderline{display:flex;justify-content:space-between;font-weight:bold;font-size:18px}input[type=range]{width:100%;accent-color:#225abb;margin:13px 0}button{padding:9px 12px;border:1px solid #aaa;border-radius:8px;background:white;cursor:pointer;font-size:14px}button.primary{background:#2459b9;color:white;border-color:#2459b9}.buttons{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 14px}.numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.num{padding:10px 6px;border:1px solid #ddd;border-radius:9px;text-align:center}.num small{display:block;font-size:13px}.num b{font-size:24px;display:block;margin-top:5px}.state{padding:13px;border:2px solid #2359b9;border-radius:10px;margin:13px 0;font-weight:bold;font-size:17px;text-align:center}.explain{font-size:15px;line-height:1.5}.rules{margin-top:11px;display:grid;gap:7px}.rule{border:1px solid #ddd;border-radius:8px;padding:9px 11px;font-size:14px;line-height:1.4}.rule.active{border:2px solid #225abb;background:#f2f6ff;padding:8px 10px}.footer{margin-top:12px;text-align:right;color:#555;font-size:12px}.footnote{font-size:12px;color:#555;margin:8px 0 0}@media(max-width:850px){.layout{grid-template-columns:1fr}}@media(min-width:851px) and (max-height:750px){body{padding:8px 15px}.panel{padding:8px}svg{max-height:60vh}.rule{padding:6px 8px}.rules{gap:4px}.state{margin:7px 0;padding:8px}}</style></head><body>
+<h1>Συνολικό Προϊόν (TP) και Οριακό Προϊόν (MP)</h1><p class="lead">ΑΟΘ · Κεφάλαιο 3 | Μετακίνησε το L και παρατήρησε πώς η μεταβολή του MP επηρεάζει τον ρυθμό μεταβολής του TP.</p>
+<div class="layout"><section class="panel"><h2>Καμπύλες TP και MP – κοινός άξονας L</h2>
+<svg viewBox="0 0 790 525" role="img" aria-label="Καμπύλες συνολικού και οριακού προϊόντος με κινούμενα σημεία και βοηθητικές γραμμές">
+<defs><clipPath id="clip"><rect x="75" y="23" width="655" height="445"/></clipPath></defs>
+<line x1="75" y1="420" x2="752" y2="420" stroke="black" stroke-width="3"/><path d="M752 420 l-12 -6 v12z" fill="black"/>
+<line x1="75" y1="465" x2="75" y2="16" stroke="black" stroke-width="3"/><path d="M75 16 l-6 12 h12z" fill="black"/>
+<text x="747" y="454" font-size="19" font-weight="bold">L</text><text x="46" y="22" font-size="19" font-weight="bold">Q</text><text x="55" y="438" font-size="14">0</text><g id="ticks"></g>
+<g clip-path="url(#clip)">
+<g id="zones" style="display:none">
+<rect x="140" y="23" width="130" height="442" fill="#50b67a" fill-opacity=".15"/>
+<rect x="270" y="23" width="325" height="442" fill="#e6bb45" fill-opacity=".15"/>
+<rect x="595" y="23" width="130" height="442" fill="#e66c6c" fill-opacity=".14"/>
+<line x1="270" y1="23" x2="270" y2="465" stroke="#8b8b8b" stroke-width="1.3" stroke-dasharray="5 5"/>
+<line x1="595" y1="23" x2="595" y2="465" stroke="#8b8b8b" stroke-width="1.3" stroke-dasharray="5 5"/>
+</g>
+<path id="tpCurve" fill="none" stroke="#2459bc" stroke-width="4.7"/>
+<path id="mpCurve" fill="none" stroke="#d22c43" stroke-width="4.7"/>
+<line id="vGuide" stroke="#111" stroke-width="1.6" stroke-dasharray="7 6"/>
+<line id="tpGuide" stroke="#111" stroke-width="1.3" stroke-dasharray="7 6"/>
+<line id="mpGuide" stroke="#111" stroke-width="1.3" stroke-dasharray="7 6"/>
+<circle id="tpPoint" r="8" fill="#2459bc" stroke="white" stroke-width="2"/>
+<circle id="mpPoint" r="8" fill="#d22c43" stroke="white" stroke-width="2"/>
+</g>
+<text id="tpTag" fill="#2459bc" font-size="18" font-weight="bold">TP</text><text id="mpTag" fill="#d22c43" font-size="18" font-weight="bold">MP</text>
+</svg>
+<div class="legend"><span><i style="background:#2459bc"></i>Συνολικό προϊόν (TP)</span><span><i style="background:#d22c43"></i>Οριακό προϊόν (MP)</span></div>
+<p class="footnote">Οι χρωματισμένες ζώνες εμφανίζονται προαιρετικά: πράσινο = αύξων ρυθμός, κίτρινο = φθίνων ρυθμός, κόκκινο = μείωση TP. Οι γραμμές L=3 και L=8 οριοθετούν τις μεταβολές.</p><p class="footnote">Ενδεικτικά δεδομένα με ακέραιους εργαζομένους. MP = ΔTP / ΔL, όπου ΔL = 1.</p></section>
+<section class="panel"><h2>Επιλογή εργαζομένου</h2>
+<div class="sliderline"><label for="labor">Εργασία (L)</label><span id="laborValue">4ος εργαζόμενος</span></div>
+<input id="labor" type="range" min="1" max="10" step="1" value="4"/>
+<div class="buttons"><button id="toggleZones" aria-pressed="false">◫ Εμφάνιση περιοχών</button><button id="play" class="primary">▶ Κίνηση</button><button id="pause">⏸ Παύση</button><button id="reset">↺ Επαναφορά</button></div>
+<div class="buttons"><button data-l="3">Μέγιστο MP (L=3)</button><button data-l="4">Έναρξη ΝΦΑ (L=4)</button><button data-l="8">Μέγιστο TP (L=8)</button><button data-l="9">Αρνητικό MP (L=9)</button></div>
+<div class="numbers"><div class="num"><small>Εργασία (L)</small><b id="nL">4</b></div><div class="num"><small style="color:#2459bc">TP</small><b id="nTP" style="color:#2459bc">80</b></div><div class="num"><small style="color:#d22c43">MP</small><b id="nMP" style="color:#d22c43">22</b></div></div>
+<div id="state" class="state">Το TP αυξάνεται με φθίνοντα ρυθμό</div><p id="explain" class="explain"></p>
+<div class="rules">
+<div id="rule1" class="rule"><b>MP αυξάνεται:</b> Το TP αυξάνεται με αύξοντα ρυθμό.</div>
+<div id="rule2" class="rule"><b>MP μειώνεται αλλά παραμένει θετικό:</b> Το TP αυξάνεται με φθίνοντα ρυθμό.</div>
+<div id="rule3" class="rule"><b>MP = 0:</b> Το TP είναι μέγιστο.</div>
+<div id="rule4" class="rule"><b>MP &lt; 0:</b> Το TP μειώνεται.</div>
+</div></section></div>
+<div class="footer">Επιμέλεια: Τσακμάκης Χρήστος, Οικονομολόγος Εκπαιδευτικός, MSc</div>
+<script>
+(()=>{'use strict';const $=id=>document.getElementById(id),NS='http://www.w3.org/2000/svg';
+const mp=[0,12,20,26,22,16,10,4,0,-8,-14],tp=[0];for(let l=1;l<=10;l++)tp[l]=tp[l-1]+mp[l];
+const X=l=>75+65*l,Y=v=>420-2.45*v;let L=4,timer=null;
+function attr(id,a){for(const[k,v]of Object.entries(a))$(id).setAttribute(k,v)}
+function add(tag,a,txt){const e=document.createElementNS(NS,tag);for(const[k,v]of Object.entries(a))e.setAttribute(k,v);if(txt!==undefined)e.textContent=txt;$('ticks').appendChild(e)}
+for(let l=1;l<=10;l++){add('line',{x1:X(l),y1:420,x2:X(l),y2:427,stroke:'#111'});add('text',{x:X(l),y:447,'font-size':14,'text-anchor':'middle'},l)}
+for(let v=-10;v<=100;v+=20){if(v===0)continue;add('line',{x1:69,y1:Y(v),x2:75,y2:Y(v),stroke:'#111'});add('text',{x:63,y:Y(v)+5,'font-size':14,'text-anchor':'end'},v)}
+function smooth(data){let d=`M ${X(1)} ${Y(data[1])}`;for(let l=1;l<10;l++){const y0=data[Math.max(1,l-1)],y1=data[l],y2=data[l+1],y3=data[Math.min(10,l+2)];const dx=65;let m1=(y2-y0)/2,m2=(y3-y1)/2;d+=` C ${X(l)+dx/3} ${Y(y1+m1/3)} ${X(l+1)-dx/3} ${Y(y2-m2/3)} ${X(l+1)} ${Y(y2)}`}return d}
+attr('tpCurve',{d:smooth(tp)});attr('mpCurve',{d:smooth(mp)});
+attr('tpTag',{x:X(10)+10,y:Y(tp[10])-10});attr('mpTag',{x:X(10)+10,y:Y(mp[10])+5});
+function render(){const x=X(L),yt=Y(tp[L]),ym=Y(mp[L]);attr('vGuide',{x1:x,y1:Math.min(yt,ym),x2:x,y2:420});attr('tpGuide',{x1:75,y1:yt,x2:x,y2:yt});attr('mpGuide',{x1:75,y1:ym,x2:x,y2:ym});attr('tpPoint',{cx:x,cy:yt});attr('mpPoint',{cx:x,cy:ym});
+$('labor').value=L;$('laborValue').textContent=L+'ος εργαζόμενος';$('nL').textContent=L;$('nTP').textContent=tp[L];$('nMP').textContent=mp[L];
+let r,title,desc;if(L<=3){r=1;title='Το TP αυξάνεται με αύξοντα ρυθμό';desc=L===3?'Στον 3ο εργαζόμενο το MP φτάνει τη μέγιστη τιμή του (26). Από τον επόμενο εργαζόμενο αρχίζει να μειώνεται.':'Το MP αυξάνεται όσο προστίθενται εργαζόμενοι. Κάθε νέος εργαζόμενος προσθέτει περισσότερο προϊόν από τον προηγούμενο.'}
+else if(L<=7){r=2;title='Το TP αυξάνεται με φθίνοντα ρυθμό';desc=L===4?'Στον 4ο εργαζόμενο το MP μειώνεται για πρώτη φορά (από 26 σε 22). Εδώ αρχίζει να εμφανίζεται ο Νόμος Φθίνουσας Απόδοσης.':'Το MP μειώνεται αλλά παραμένει θετικό. Το TP εξακολουθεί να αυξάνεται, με ολοένα μικρότερες προσθήκες.'}
+else if(L===8){r=3;title='Μέγιστο TP – MP = 0';desc='Στον 8ο εργαζόμενο το MP μηδενίζεται και το TP φτάνει στη μέγιστη τιμή του (110).'}
+else{r=4;title='Αρνητικό MP – Το TP μειώνεται';desc=`Στον ${L}ο εργαζόμενο το MP είναι ${mp[L]}. Ο πρόσθετος εργαζόμενος μειώνει το συνολικό προϊόν από ${tp[L-1]} σε ${tp[L]}.`}
+$('state').textContent=title;$('explain').textContent=desc;for(let i=1;i<=4;i++)$('rule'+i).classList.toggle('active',i===r);
+}
+function stop(){if(timer!==null){clearInterval(timer);timer=null}$('play').textContent='▶ Κίνηση'}
+function set(l){L=l;render()}
+$('labor').oninput=e=>{stop();set(+e.target.value)};document.querySelectorAll('[data-l]').forEach(b=>b.onclick=()=>{stop();set(+b.dataset.l)});
+$('play').onclick=()=>{if(timer!==null)return;if(L===10)L=1;$('play').textContent='▶ Σε κίνηση…';timer=setInterval(()=>{set(L+1);if(L===10)stop()},850)};
+$('toggleZones').onclick=()=>{const visible=$('zones').style.display!=='none';$('zones').style.display=visible?'none':'';$('toggleZones').textContent=visible?'◫ Εμφάνιση περιοχών':'◫ Απόκρυψη περιοχών';$('toggleZones').setAttribute('aria-pressed',String(!visible))};$('pause').onclick=stop;$('reset').onclick=()=>{stop();set(4)};render()})();
+</script></body></html>
