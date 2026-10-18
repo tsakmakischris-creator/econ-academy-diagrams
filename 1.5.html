@@ -44,6 +44,7 @@ if(!reverse){line('horizontal',xa,ya,xb,ya);line('vertical',xb,ya,xb,yb)}
 else{line('horizontal',xa,ya,xb,ya);line('vertical',xb,ya,xb,yb)}
 $('horizontal').setAttribute('stroke',reverse?'#d52b40':'#12864d');$('vertical').setAttribute('stroke',reverse?'#12864d':'#d52b40');
 $('transition').textContent=names[a]+' → '+names[b];$('direction').textContent=reverse?'Αύξηση Ψ':'Αύξηση Χ';
+$('changeX').classList.toggle('green',!reverse);$('changeX').classList.toggle('red',reverse);$('changeY').classList.toggle('green',reverse);$('changeY').classList.toggle('red',!reverse);
 $('changeX').textContent='ΔΧ = '+(xs[b]-xs[a]>0?'+':'')+(xs[b]-xs[a]);$('changeY').textContent='ΔΨ = '+(ys[b]-ys[a]>0?'+':'')+(ys[b]-ys[a]);
 $('formula').innerHTML=reverse?'<b>ΚΕ<sub>Ψ</sub> = 10 / 25 = 0,4</b>':'<b>ΚΕ<sub>Χ</sub> = 25 / 10 = 2,5</b>';
 $('conclusion').textContent=reverse?'Το ΚΕ του Ψ είναι πάντα 0,4 μονάδες Χ.':'Το ΚΕ του Χ είναι πάντα 2,5 μονάδες Ψ.';
